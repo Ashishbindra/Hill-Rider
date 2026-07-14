@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="
+            width=device-width,
+            initial-scale=1.0,
+            maximum-scale=1.0,
+            user-scalable=no
+        ">
+
+    <title>Hill Rider</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/mobile.css">
+
+</head>
+
+<body>
+
+    <canvas id="gameCanvas"></canvas>
+
+
+    <div class="mobile-controls">
+
+        <button id="brakeBtn" class="control-btn">
+            BRAKE
+        </button>
+
+        <button id="gasBtn" class="control-btn">
+            GAS
+        </button>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/poly-decomp@0.3.0/build/decomp.min.js"></script>
+
+    <script>
+
+        Matter.Common.setDecomp(
+            decomp
+        );
+
+    </script>
+
+
+    <script src="js/engine.js"></script>
+
+    <script src="js/terrain.js"></script>
+
+    <script src="js/car.js"></script>
+
+    <script src="js/camera.js"></script>
+
+    <script src="js/background.js"></script>
+
+    <script src="js/particles.js"></script>
+
+    <script src="js/controls.js"></script>
+
+    <script src="js/physics.js"></script>
+
+    <script src="js/fuel.js"></script>
+
+    <script src="js/coin.js"></script>
+
+    <script src="js/sound.js"></script>
+
+    <script src="js/garage.js"></script>
+
+    <script src="js/menu.js"></script>
+
+    <script src="js/checkpoint.js"></script>
+
+    <script src="js/pause.js"></script>
+
+    <script src="js/mobile-controls.js"></script>
+
+    <script src="js/mobile-ui.js"></script>
+
+    <script src="js/car-select.js"></script>
+
+    <script src="js/save.js"></script>
+
+    <script src="js/game.js"></script>
+
+</body>
+
+</html>
