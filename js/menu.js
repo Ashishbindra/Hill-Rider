@@ -1029,16 +1029,20 @@ const Menu = {
 
     drawMapSelection() {
 
+        const mobile =
+            canvas.width < 700;
+
+
         const cardWidth =
-            190;
+            mobile ? 100 : 190;
 
 
         const cardHeight =
-            120;
+            mobile ? 80 : 120;
 
 
         const gap =
-            20;
+            mobile ? 8 : 20;
 
 
         const totalWidth =
@@ -1048,7 +1052,9 @@ const Menu = {
             cardWidth +
 
             (
+
                 this.maps.length - 1
+
             ) *
 
             gap;
@@ -1056,13 +1062,23 @@ const Menu = {
 
         const startX =
 
-            canvas.width / 2 -
+            Math.max(
 
-            totalWidth / 2;
+                5,
+
+                (
+
+                    canvas.width -
+
+                    totalWidth
+
+                ) / 2
+
+            );
 
 
         const y =
-            145;
+            mobile ? 150 : 145;
 
 
         for (
@@ -1076,7 +1092,6 @@ const Menu = {
         ) {
 
             const map =
-
                 this.maps[i];
 
 
@@ -1087,16 +1102,17 @@ const Menu = {
                 i *
 
                 (
+
                     cardWidth +
 
                     gap
+
                 );
 
 
             const selected =
 
                 i ===
-
                 this.selectedMap;
 
 
@@ -1122,7 +1138,7 @@ const Menu = {
 
                 cardHeight,
 
-                14
+                10
 
             );
 
@@ -1137,7 +1153,7 @@ const Menu = {
 
 
                 ctx.lineWidth =
-                    4;
+                    mobile ? 2 : 4;
 
 
                 ctx.stroke();
@@ -1154,9 +1170,19 @@ const Menu = {
                     : "#ffffff";
 
 
+            // MAP NAME
+
             ctx.font =
 
-                "bold 19px Arial";
+                "bold " +
+
+                (
+
+                    mobile ? 10 : 19
+
+                ) +
+
+                "px Arial";
 
 
             ctx.textAlign =
@@ -1171,13 +1197,28 @@ const Menu = {
 
                 cardWidth / 2,
 
-                y + 42
+                y +
+
+                (
+
+                    mobile ? 25 : 42
+
+                )
 
             );
 
 
+            // DESCRIPTION
+
             ctx.font =
-                "13px Arial";
+
+                (
+
+                    mobile ? 8 : 13
+
+                ) +
+
+                "px Arial";
 
 
             ctx.fillText(
@@ -1188,21 +1229,37 @@ const Menu = {
 
                 cardWidth / 2,
 
-                y + 70
+                y +
+
+                (
+
+                    mobile ? 45 : 70
+
+                )
 
             );
 
 
+            // BUTTON
+
             ctx.font =
 
-                "bold 14px Arial";
+                "bold " +
+
+                (
+
+                    mobile ? 9 : 14
+
+                ) +
+
+                "px Arial";
 
 
             ctx.fillText(
 
                 selected
 
-                    ? "SELECTED"
+                    ? "OK"
 
                     : "SELECT",
 
@@ -1210,7 +1267,13 @@ const Menu = {
 
                 cardWidth / 2,
 
-                y + 98
+                y +
+
+                (
+
+                    mobile ? 66 : 98
+
+                )
 
             );
 
@@ -1235,7 +1298,6 @@ const Menu = {
 
     },
 
-
     // =====================================
     // DRAW SELECT CAR BUTTON
     // =====================================
@@ -1245,7 +1307,7 @@ const Menu = {
         const selectedCar =
 
             typeof CarSelect !==
-            "undefined"
+                "undefined"
 
                 ? CarSelect
                     .getSelectedCar()

@@ -14,7 +14,9 @@
         ">
 
     <title>Hill Rider</title>
-
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/icon-192.png">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#2196f3">
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="css/mobile.css">
@@ -42,7 +44,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/poly-decomp@0.3.0/build/decomp.min.js"></script>
-
     <script>
 
         Matter.Common.setDecomp(
@@ -51,10 +52,11 @@
 
     </script>
 
-
     <script src="js/engine.js"></script>
 
     <script src="js/terrain.js"></script>
+
+    <script src="js/physics.js"></script>
 
     <script src="js/car.js"></script>
 
@@ -65,8 +67,6 @@
     <script src="js/particles.js"></script>
 
     <script src="js/controls.js"></script>
-
-    <script src="js/physics.js"></script>
 
     <script src="js/fuel.js"></script>
 
@@ -92,6 +92,16 @@
 
     <script src="js/game.js"></script>
 
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./service-worker.js")
+                    .then(() => console.log("Service Worker Registered"))
+                    .catch(err => console.log(err));
+            });
+        }
+    </script>
 </body>
 
 </html>
